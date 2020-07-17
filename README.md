@@ -8,12 +8,18 @@ This screenshot
 shows a modification of the `CustomFoldText` [function by Christian Brabandt](https://github.com/chrisbra/vim_dotfiles/blob/master/plugin/CustomFoldText.vim) that is more amenable to `syntax` folds.
 (Which in turn is a modification of the `CustomFoldText` [function by Greg Sexton](http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold)).
 
+# Modifications
+
+FoldText variables:
+`g:fold_text_indent` - indent folded text. Default value - 1.
+
 # Example settings
 
 ```vim
 set foldmethod=syntax
 
 " { Syntax Folding
+  let g:fold_text_indent = 0
   let g:vimsyn_folding='af'
   let g:tex_fold_enabled=1
   let g:xml_syntax_folding = 1

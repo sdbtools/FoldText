@@ -1,3 +1,10 @@
+if exists('g:fold_text_loaded')
+    finish
+endif
+let g:fold_text_loaded = 1
+
+let g:fold_text_indent = get(g:, 'fold_text_indent', 1)
+
 " Modification of https://github.com/chrisbra/vim_dotfiles/blob/master/plugin/CustomFoldText.vim
 " Always show some delimiters (the argument of CustomFoldText) and the tail of
 " the folded line, that is, the number of lines folded (absolute and relative)
@@ -14,7 +21,11 @@ function! CustomFoldText(delim)
   " indent foldtext corresponding to foldlevel
   let indent = repeat(' ',shiftwidth())
   let foldLevelStr = repeat(indent, v:foldlevel-1)
-  let foldLineHead = substitute(line, '^\s*', foldLevelStr, '')
+  if g:fold_text_indent
+    let foldLineHead = substitute(line, '^\s*', foldLevelStr, '')
+  else
+    let foldLineHead = line
+  endif
 
   " size foldtext according to window width
   let w = winwidth(0) - &foldcolumn - (&number ? &numberwidth : 0) - (&l:signcolumn is# 'yes' ? 2 : 0)

@@ -15,6 +15,11 @@ http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold
 
 ==
 
+FoldText variables:
+g:fold_text_indent - indent folded text. Default value - 1.
+
+==
+
 Example settings
 
 ```
